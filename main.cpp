@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
@@ -11,6 +12,31 @@ const char VOLTANDO = 'V';
 
 const int LARGURA = 5;
 const int ALTURA  = 5;
+
+void ConstruindoMapa(char mapa[5][5], int &posX, int &posY) {
+    
+    srand(time(NULL));
+     
+    posX=rand()%5;
+    posY=rand()%5;
+    
+    for (int i = 0; i <LARGURA; i++){
+        for (int j = 0; j < ALTURA; j++){
+            mapa[i][j] = ESPACO;
+        }
+    }
+
+
+  
+    mapa[1][0] = PAREDE;
+    mapa[3][4] = PAREDE;
+    mapa[2][2] = PAREDE;
+    mapa[4][1] = PAREDE;
+    mapa[3][3] = QUEIJO;
+    
+    mapa[posX][posY] = ENTRADA;
+    
+}
 
 void exibirMapa (char mapa[LARGURA][ALTURA])
 {
@@ -27,22 +53,10 @@ void exibirMapa (char mapa[LARGURA][ALTURA])
 
 int main (){
 
-    char mapa [LARGURA][ALTURA];
+      char mapa[5][5];
+    int posicaoXEntradaRato,posicaoYEntradaRato;
 
-    for (int i = 0; i <LARGURA; i++){
-        for (int j = 0; j < ALTURA; j++){
-            mapa[i][j] = ESPACO;
-        }
-    }
-
-
-    mapa[0][0] = ENTRADA;
-    mapa[0][4] = PAREDE;
-    mapa[1][1] = PAREDE;
-    mapa[1][4] = PAREDE;
-    mapa[2][3] = PAREDE;
-    mapa[3][3] = QUEIJO;
-
+    ConstruindoMapa(mapa,posicaoXEntradaRato,posicaoYEntradaRato);
     exibirMapa (mapa);
 
 }

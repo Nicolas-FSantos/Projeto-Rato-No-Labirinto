@@ -12,6 +12,12 @@ const char ENTRADA = 'E';
 const char RATO = 'R';
 const char VOLTANDO = 'V';
 
+const int DIREITA = 0;
+const int BAIXO = 1;
+const int ESQUERDA = 2;
+const int CIMA = 3;
+const int INICIO = 4;
+
 const int LARGURA = 5;
 const int ALTURA  = 5;
 

@@ -11,6 +11,7 @@ const char QUEIJO = 'Q';
 const char ENTRADA = 'E';
 const char RATO = 'R';
 const char VOLTANDO = 'V';
+const char COMENDO = 'X';
 
 const int DIREITA = 0;
 const int BAIXO = 1;
@@ -46,6 +47,31 @@ void ConstruindoMapa(char mapa[5][5], int &posX, int &posY) {
     
 }
 
+void ConstruindoMapa2(char mapa[5][5], int &posX, int &posY) {
+    
+    srand(time(NULL));
+     
+    posX=rand()%5;
+    posY=rand()%5;
+    
+    for (int i = 0; i <LARGURA; i++){
+        for (int j = 0; j < ALTURA; j++){
+            mapa[i][j] = ESPACO;
+        }
+    }
+
+
+  
+    mapa[0][1] = PAREDE;
+    mapa[1][0] = PAREDE;
+    mapa[0][2] = PAREDE;
+    mapa[2][0] = PAREDE;
+    mapa[0][0] = QUEIJO;
+    
+    mapa[posX][posY] = ENTRADA;
+    
+}
+
 void exibirMapa (char mapa[LARGURA][ALTURA])
 {
     for (int i=0; i<LARGURA; i++)
@@ -56,7 +82,7 @@ void exibirMapa (char mapa[LARGURA][ALTURA])
         }
         cout << endl;
     }
-
+    cout << endl;
 }
 
 #endif
